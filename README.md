@@ -1,16 +1,326 @@
-# React + Vite
+# llm_front_react_01kmh
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React와 Vite를 활용하여 제작한 기업·연봉 데이터 조회 서비스형 웹페이지입니다.
 
-Currently, two official plugins are available:
+기존 웹서비스의 정보 구조와 디자인을 참고하여 단순 복제가 아니라,
+기업 검색과 연봉 데이터 비교를 중심으로 사용자가 정보를 빠르게 확인할 수 있도록
+React 기반 UI로 재구성하는 것을 목표로 제작했습니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 프로젝트 정보
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 프로젝트명: llm_front_react_01kmh
+- 개발자: 김민환
+- 개발 방식: React + Vite 기반 Front-end
+- 배포 방식: GitHub Pages + GitHub Actions
+- 프로젝트 성격: React UI/UX 실습 및 바이브코딩 연습
 
-## Expanding the Oxlint configuration
+### GitHub Repository
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+https://github.com/kmh2k2242-prog/llm_front_react_01kmh
+
+### 실행 페이지
+
+https://kmh2k2242-prog.github.io/llm_front_react_01kmh/
+
+---
+
+# 프로젝트 목적
+
+이번 프로젝트의 목적은 기존 HTML/CSS 중심의 정적인 웹페이지 제작 방식에서 벗어나
+React의 컴포넌트 구조와 상태 관리를 이용하여 실제 서비스 형태의 웹페이지를 구현하는 것입니다.
+
+기업·연봉 데이터 플랫폼을 주제로 선정하여 다음과 같은 요소를 구현했습니다.
+
+- 기업 검색 UI
+- 인기 기업 검색 기능
+- 기업 연봉 데이터 표시
+- 산업군별 필터 기능
+- 서비스 소개 카드 UI
+- 기업 데이터 통계 영역
+- 임금체불 신고센터 배너
+- 반응형 메뉴 구조
+- GitHub Pages 배포
+
+---
+
+# 주요 화면 및 기능
+
+## 1. Header
+
+페이지 상단에 서비스 로고와 주요 메뉴를 구성했습니다.
+
+메뉴 구성
+
+- 서비스 소개
+- 연봉 조회
+- 전문정보 조회
+- 임금체불 신고센터
+- 로그인
+- 무료 회원가입
+
+모바일 화면을 고려하여 메뉴 버튼을 클릭하면 메뉴가 열리고 닫히도록
+React의 useState를 이용해 상태를 관리했습니다.
+
+---
+
+## 2. Hero 영역
+
+서비스의 핵심 목적을 가장 먼저 보여주는 영역입니다.
+
+주요 문구
+
+> 더 나은 커리어를 위한 정확한 기업 데이터
+
+사용자가 회사명이나 사업자번호를 입력할 수 있도록 검색창을 배치했습니다.
+
+또한
+
+- 삼성전자
+- 네이버
+- 현대자동차
+
+등의 인기 검색 버튼을 제공하여 사용자가 빠르게 기업을 선택할 수 있도록 구성했습니다.
+
+---
+
+## 3. 기업 검색 기능
+
+React의 useState를 사용하여 사용자가 입력한 검색어를 관리합니다.
+
+검색 버튼을 클릭하면 입력한 검색어가 하위 연봉 데이터 영역으로 전달되도록 구현했습니다.
+
+사용된 주요 React 개념
+
+- useState
+- props
+- 이벤트 처리
+- form submit
+- 컴포넌트 간 데이터 전달
+
+---
+
+## 4. 서비스 소개
+
+기업 데이터 서비스의 핵심 기능을 카드 형태로 구성했습니다.
+
+주요 기능
+
+### 기업 연봉조회
+기업별 평균 연봉과 보상 수준을 비교할 수 있도록 구성
+
+### 대기업 전용관
+주요 대기업의 채용, 연봉, 복지 정보를 확인하는 서비스 형태로 표현
+
+### 연봉 분석
+직무와 경력에 따른 연봉 수준을 데이터 기반으로 분석하는 기능을 가정하여 구성
+
+---
+
+## 5. 연봉 데이터 비교
+
+기업별 연봉 정보를 테이블 형태로 표현했습니다.
+
+예시 데이터
+
+- 삼성전자
+- 네이버
+- 현대자동차
+- 카카오
+
+각 기업마다
+
+- 업종
+- 평균 연봉
+- 전년 대비 연봉 상승률
+
+정보를 표시하도록 구성했습니다.
+
+---
+
+## 6. 산업별 필터
+
+다음과 같은 필터 버튼을 구현했습니다.
+
+- 전체
+- IT
+- 자동차
+
+React의 useState를 사용하여 선택된 필터 상태를 저장하고,
+useMemo를 활용하여 조건에 맞는 기업 데이터만 화면에 출력하도록 구현했습니다.
+
+이를 통해 React에서 상태 값에 따라 화면이 자동으로 변경되는 구조를 연습했습니다.
+
+---
+
+## 7. 임금체불 신고센터
+
+기업·연봉 정보만 제공하는 페이지에서 끝나지 않고
+근로자에게 필요한 서비스까지 연결되는 형태를 표현하기 위해
+임금체불 신고센터 영역을 추가했습니다.
+
+사용자에게 행동을 유도할 수 있도록 CTA 버튼을 배치했습니다.
+
+---
+
+## 8. 데이터 통계 영역
+
+서비스가 보유하고 있는 데이터의 규모를 보여주는 형태로 구성했습니다.
+
+예시
+
+- 연봉 보유기업
+- 연봉 데이터
+- 오늘 조회
+- 등록 회원
+
+실제 서비스에서 사용자가 서비스의 신뢰성과 규모를 빠르게 이해할 수 있는
+시각적 요소를 참고하여 구성했습니다.
+
+---
+
+# 사용 기술
+
+## Front-end
+
+- React
+- JavaScript
+- HTML
+- CSS
+
+## Build Tool
+
+- Vite
+
+## Version Control
+
+- Git
+- GitHub
+
+## Deployment
+
+- GitHub Pages
+- GitHub Actions
+
+---
+
+# React에서 사용한 주요 개념
+
+이번 프로젝트에서 중점적으로 연습한 React 개념은 다음과 같습니다.
+
+### Component
+
+화면 전체를 한 파일에 작성하지 않고 기능별로 분리하여 구성했습니다.
+
+예시
+
+- Header
+- Hero
+- Services
+- SalaryPreview
+- ReportBanner
+- Stats
+- Footer
+
+이를 통해 UI를 기능 단위로 관리하는 React의 컴포넌트 구조를 연습했습니다.
+
+### useState
+
+검색어, 메뉴 상태, 필터 선택 상태 등을 관리하기 위해 사용했습니다.
+
+### props
+
+Hero 컴포넌트에서 입력된 검색어를 상위 컴포넌트를 통해
+SalaryPreview 영역으로 전달하는 방식으로 사용했습니다.
+
+### useMemo
+
+기업 검색 및 산업 필터 조건에 따라 데이터를 필터링할 때 사용했습니다.
+
+---
+
+# 바이브코딩 / AI 활용 과정
+
+이번 프로젝트에서는 AI에게 한 번에 모든 페이지를 만들어 달라고 요청하기보다는
+기능과 화면을 나누어 단계적으로 수정하는 방식으로 작업했습니다.
+
+AI에게 요구사항을 명확하게 전달하고
+생성된 결과를 직접 확인한 뒤 수정 프롬프트를 반복하는 방식으로 진행했습니다.
+
+---
+
+# 작업에 사용한 주요 프롬프트 예시
+
+## 초기 화면 제작
+
+아래와 같은 형태의 프롬프트를 이용해 전체 페이지의 기본 구조를 잡았습니다.
+
+> 기업 정보와 연봉 데이터를 확인할 수 있는 웹서비스를 React로 만들어줘.
+> 상단에는 로고와 메뉴가 있고,
+> 메인 영역에는 기업 검색창을 배치해줘.
+> 그 아래에는 기업 연봉조회, 대기업 전용관, 연봉 분석 서비스를 카드 형태로 만들어줘.
+> 전체 디자인은 실제 기업 데이터 플랫폼처럼 전문적이고 깔끔하게 구성해줘.
+
+---
+
+## 기존 사이트 참고 디자인 개선
+
+> 기존 기업정보 웹페이지의 레이아웃을 참고하되 그대로 복사하지 말고
+> React 기반의 현대적인 UI로 다시 디자인해줘.
+> 흰색 배경을 중심으로 사용하고,
+> 카드와 데이터 영역이 명확하게 구분되도록 구성해줘.
+
+---
+
+## 검색 기능 구현
+
+> Hero 영역에 회사명을 입력할 수 있는 검색창을 만들고
+> 검색 버튼을 누르면 하단의 연봉 데이터에서 해당 기업만 표시되도록 해줘.
+> React useState를 이용해서 구현해줘.
+
+---
+
+## 인기 검색 기능
+
+> 검색창 아래에 삼성전자, 네이버, 현대자동차 인기 검색 버튼을 추가해줘.
+> 버튼을 누르면 해당 회사명이 검색창에 자동으로 입력되도록 구현해줘.
+
+---
+
+## 연봉 필터 기능
+
+> 연봉 데이터 영역에 전체, IT, 자동차 필터 버튼을 만들어줘.
+> 필터를 선택하면 해당 산업에 속하는 기업만 화면에 표시되도록 해줘.
+> React 상태 관리 방식으로 구현해줘.
+
+---
+
+## UI 개선
+
+> 전체 화면이 단순한 연습 페이지처럼 보이지 않고
+> 실제 서비스의 랜딩페이지처럼 보이도록 디자인을 개선해줘.
+>
+> Hero 영역의 정보 계층을 명확하게 만들고
+> 카드에 여백과 그림자를 적용해줘.
+> 숫자 데이터는 강조하고,
+> 사용자 행동 버튼은 눈에 잘 띄도록 만들어줘.
+
+---
+
+## 반응형 화면 개선
+
+> 데스크톱뿐 아니라 화면 폭이 줄어들었을 때도 레이아웃이 깨지지 않도록
+> 반응형 CSS를 적용해줘.
+> 모바일에서는 메뉴를 버튼 방식으로 열고 닫을 수 있도록 만들어줘.
+
+---
+
+# GitHub 배포 과정
+
+프로젝트 작업 후 다음 과정을 통해 GitHub에 업로드했습니다.
+
+```bash
+git add .
+git commit -m "작업 내용"
+git push
